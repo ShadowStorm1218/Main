@@ -13,7 +13,7 @@ if int(version) == global_version:
     pass
 else:
     print("Incompatible Version, Auto Updating.")
-    url = 'https://raw.githubusercontent.com/ShadowStorm1218/Main/main/updated%20version.py'
+    url = 'https://raw.githubusercontent.com/ShadowStorm1218/Main/main/Main.py'
     filename = 'main.py'
 
     response = requests.get(url)

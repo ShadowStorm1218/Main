@@ -1,8 +1,9 @@
 import requests
 import json
 import os
-
-version = "0"
+import subprocess
+import sys
+version = "2"
 
 global_version = int(requests.get('https://raw.githubusercontent.com/ShadowStorm1218/Main/main/version.txt').text)
 
@@ -13,14 +14,14 @@ if int(version) == global_version:
 else:
     print("Incompatible Version, Auto Updating.")
     url = 'https://raw.githubusercontent.com/ShadowStorm1218/Main/main/updated%20version.py'
-    filename = 'file.py'
+    filename = 'main.py'
 
     response = requests.get(url)
 
     if response.status_code == 200:
         with open(filename, 'wb') as f:
             f.write(response.content)
-            print(f'Successfully downloaded {filename}')
+            os.remove(__file__)
     else:
         print(f'Error updating code: HTTP status code {response.status_code}')
 
@@ -31,5 +32,3 @@ else:
 
 
 print("End Of Code")
-
-os.remove(__file__)
